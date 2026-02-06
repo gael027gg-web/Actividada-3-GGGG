@@ -1,0 +1,288 @@
+/* ====== FONDO GENERAL CON IMAGEN ====== */
+body {
+    background: url("../img/fondo4.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #eee;
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== BARRA SUPERIOR (GRIS OSCURO) ====== */
+.topbar {
+    background: #2a2c33ee; 
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    height: 70px;          
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-area {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-area img {
+    height: 130px;         
+    width: auto;
+    display: block;
+    filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.5));
+    position: relative;
+    top: 0px;    
+    left: -10px;  
+}
+
+.topnav a {
+    color: #ccc;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    color: #00ff66;
+}
+
+/* ====== CONTENEDOR ====== */
+.main-wrap {
+    max-width: 1200px;
+    margin: 60px auto; 
+    background: rgba(0,0,0,.45);
+    padding: 25px;
+    border-radius: 16px;
+}
+
+/* ====== CREAR TAREA ====== */
+.task-create {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.task-create input,
+.task-create select {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    min-width: 180px;
+}
+
+input[type="date"] {
+    font-family: Arial;
+}
+
+/* ====== BOTÓN AGREGAR ====== */
+#btnAgregar {
+    background: #00ff66;
+    border: none;
+    padding: 12px 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#btnAgregar:hover {
+    transform: scale(1.05);
+}
+
+/* ====== GRID ====== */
+.task-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+}
+
+/* ====== TARJETAS ====== */
+.task-card {
+    background: white;
+    color: #333;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 0 12px rgba(0,0,0,.4);
+}
+
+/* ====== BADGES ====== */
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+}
+.badge.urgente { background: red; }
+.badge.media { background: gray; }
+
+/* ====== META ====== */
+.task-meta p {
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+/* ====== BOTONES ====== */
+.task-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.ok {
+    background: #00ff00;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.del {
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.edit {
+    background: #ffd54f;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.edit:hover {
+    background: #ffca28;
+}
+
+/* ====== COMPLETADO ====== */
+.done {
+    text-decoration: line-through;
+    opacity: .6;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 280px;
+    color: #333; /* Texto oscuro */
+}
+
+/* PANEL USUARIOS */
+.panel-usuarios {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 100%;
+    background: white;
+    color: #333;
+    box-shadow: -5px 0 25px rgba(0,0,0,.35);
+    padding: 20px;
+    transform: translateX(100%);
+    transition: .3s;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.panel-usuarios.show {
+    transform: translateX(0);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.usuario-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.usuario-item button {
+    background: red;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    /* Botón hamburguesa: Gris oscuro con borde sutil */
+    .menu-toggle {
+        display: block;
+        background: #3a3c44; 
+        border: 1px solid #555;
+        padding: 5px 12px;
+    }
+
+    /* El menú desplegable: Color gris igual a la topbar */
+    .topnav {
+        position: absolute;
+        top: 70px;
+        right: 15px;
+        background: #2a2c33; /* El mismo gris de tu topbar */
+        width: 200px;
+        border-radius: 12px;
+        padding: 10px;
+        display: none; /* Se activa con el JS */
+        flex-direction: column;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        z-index: 1001;
+    }
+
+    /* Clase que activa el JavaScript */
+    .topnav.show {
+        display: flex;
+    }
+
+    .topnav a {
+        padding: 12px;
+        margin-left: 0;
+        border-bottom: 1px solid #3d3f46;
+        color: #ccc;
+    }
+
+    .topnav a:hover {
+        background: #3a3c44;
+        color: #00ff66; /* Verde neón que ya usas */
+    }
+}

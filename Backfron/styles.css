@@ -1,0 +1,454 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poiret One", sans-serif;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* HEADER ORIGINAL */
+.header {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/Fondo5.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MENU - Altura controlada */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 90px;      
+    padding: 0 40px;   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+    z-index: 1000;
+}
+
+/* LOGO - Control de movimiento y seguridad */
+.logo img {
+    height: 150px;      
+    width: auto;
+    display: block;
+    transition: 0.3s ease;   
+    position: relative; 
+    top: 0px;    
+    left: -30px; 
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+}
+
+/* LOGO GRANDE DEL CENTRO */
+.logo-centro {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-centro img {
+    width: 500px;
+    max-width: 80%;
+    height: auto;
+}
+
+/* NAVBAR */
+.navbar ul {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    color: white; 
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: white;
+    color: blueviolet;
+}
+
+/* HEADER INFO */
+.header-info {
+    margin-top: -60px;
+    text-align: center;
+}
+
+.header-info h1 {
+    color: rgb(255, 255, 255);
+}
+
+.header-info p {
+    color: rgb(255, 255, 255);
+}
+
+/* BOTONES */
+.btn-1,
+.btn-2 {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: rgb(6, 240, 30);
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-volver {
+    position: fixed;
+    top: 90px; 
+    left: 20px;
+    padding: 10px 15px;
+    background: #01fc01;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.btn-1:hover,
+.btn-2:hover {
+    background-color: #7a2cbf;
+    color: white;
+}
+
+/* PRODUCTOS */
+.productos {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.productos h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* INFO */
+.info {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.info h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.info p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.info ul {
+    margin-bottom: 30px;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #e6e6e6;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contacto-form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contacto-form input,
+.contacto-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+    display: none; 
+    font-size: 32px;
+    cursor: pointer;
+    color: white;
+}
+
+/* RESPONSIVE GENERAL */
+@media (max-width: 768px) {
+    /* SEGURIDAD LOGO: Se ajusta solo en pantallas chicas */
+    .logo img {
+        height: 70px; 
+        top: 0px; 
+        left: 0px;
+    }
+
+    .menu-toggle {
+        display: block; 
+    }
+
+    .navbar {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: blueviolet;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar.active {
+        display: block; 
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* REDES SOCIALES */
+.redes-sociales {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes-sociales a {
+    background-color: blueviolet;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* GESTOR TAREAS */
+#tabla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    min-height: 100vh;
+    background: #f4f4f4;
+}
+
+/* ===================================
+   VARIANTES Y LOGIN RESPONSIVE
+=================================== */
+
+.header-login {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url("../img/Fondo 2.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.header-login::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.login-container {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    max-width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+    transform: translateY(30px);
+}
+
+.login-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.login-container h2 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 22px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    background: rgb(6, 240, 30);
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background: #7a2cbf;
+    color: white;
+}
+
+/* ZONA ADMIN (RE-CENTRADA) */
+.admin-zone {
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 🔹 Centrado vertical */
+    align-items: center;     /* 🔹 Centrado horizontal */
+    min-height: 400px;       /* 🔹 Espacio suficiente */
+}
+
+/* MODAL BOX - Color de texto fijo */
+.modal-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    color: #000000;
+}
+
+.modal-box h2 {
+    color: #000000 !important;
+}
+
+#error {
+    color: #ff5252;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 18px;
+}
+
+#btnLogin:active {
+    transform: scale(0.95);
+    background-color: #05cc05;
+}
+
+.btn-back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 28px;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    transition: 0.2s;
+    z-index: 1000;
+}
+
+.btn-back:hover {
+    background: #00ff66;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* BOTÓN HAMBURGUESA - Ahora morado */
+.menu-toggle {
+    display: none; 
+    font-size: 32px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: transparent; /* Quitamos el fondo oscuro */
+    color: white;
+}
+
+/* Ajuste para el menú móvil */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; 
+    }
+
+    .navbar {
+        display: none; 
+        position: absolute;
+        top: 90px; /* Altura de tu menú */
+        left: 0;
+        width: 100%;
+        background-color: blueviolet; /* Morado como la barra */
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Esta clase es la que activa el JS */
+    .navbar.active {
+        display: block; 
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

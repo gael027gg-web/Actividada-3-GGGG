@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestor Avanzado - Regio Ajos</title>
+
+<link rel="stylesheet" href="../Backfron/styles.css">
+<link rel="stylesheet" href="../Backfron/gestor.css">
+
+</head>
+<body>
+
+
+<header class="topbar">
+    <div class="logo-area">
+        <img src="../img/Regio ajos.png">
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+
+    <nav class="topnav">
+        <a href="#">Gestor de tareas</a>
+        <a href="#" id="linkUsuarios">Usuarios</a>
+        <a href="login.html">Cerrar sesión</a>
+    </nav>
+</header>
+
+
+<main class="main-wrap">
+
+<div id="editModal" class="modal hidden">
+  <div class="modal-box">
+    <h3>Editar tarea</h3>
+
+    <input id="editTexto">
+    <input type="date" id="editFecha">
+
+    <button id="saveEdit">Guardar</button>
+    <button id="cancelEdit">Cancelar</button>
+  </div>
+</div>
+
+<section class="task-create">
+
+<input id="taskInput" placeholder="Crear nueva tarea">
+
+<select id="usuarioAsignado"></select>
+
+<select id="prioridad">
+<option value="media">Prioridad Media</option>
+<option value="urgente">Urgente</option>
+</select>
+
+<input type="date" id="fechaEntrega">
+
+<button id="btnAgregar">Agregar tarea</button>
+
+<button id="btnCrearUsuario" style="display:none;">
+Crear usuario
+</button>
+
+</section>
+
+<section id="taskGrid" class="task-grid"></section>
+
+</main>
+
+<div id="panelUsuarios" class="panel-usuarios">
+
+  <div class="panel-header">
+    <h3>Usuarios</h3>
+    <button id="cerrarPanel">✖</button>
+  </div>
+
+  <div id="listaUsuarios"></div>
+
+</div>
+
+<script src="../Backfron/app.js"></script>
+</body>
+</html>

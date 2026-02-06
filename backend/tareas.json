@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1770401844235,
+    "texto": "Tarea prueba 1",
+    "asignado": "Chief",
+    "prioridad": "urgente",
+    "fechaEntrega": "2026-02-24",
+    "fechaCreacion": "6/2/2026",
+    "creador": "Gael",
+    "done": false
+  },
+  {
+    "id": 1770406325464,
+    "texto": "ir por mi galletita al avanti",
+    "asignado": "Cortana",
+    "prioridad": "media",
+    "fechaEntrega": "2026-02-12",
+    "fechaCreacion": "6/2/2026",
+    "creador": "Chief",
+    "done": false
+  }
+]
