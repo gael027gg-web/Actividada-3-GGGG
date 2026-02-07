@@ -17,5 +17,14 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gael027gg-web/Actividada-3-GGGG.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gael027gg-web/Actividada-3-GGGG/issues"
+  },
+  "homepage": "https://github.com/gael027gg-web/Actividada-3-GGGG#readme"
 }
