@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
       API HELPERS
   ===================== */
 
-  const API_URL = "http://localhost:3000/tareas";
+  
+const API_URL = "http://localhost:3000/tasks";
 
   async function apiGetTareas() {
     const res = await fetch(API_URL, {
@@ -71,69 +72,68 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================
       LOGIN (API) - FIX FINAL
   ===================== */
+const btnLogin = document.getElementById("btnLogin");
 
-  const btnLogin = document.getElementById("btnLogin");
+if (btnLogin) {
+  btnLogin.onclick = async () => {
+    const userInput = document.getElementById("user");
+    const passInput = document.getElementById("pass");
+    const errorBox = document.getElementById("error");
 
-  if (btnLogin) {
-    btnLogin.onclick = async () => {
+    const user = userInput.value.trim();
+    const pass = passInput.value.trim();
 
-      const userInput = document.getElementById("user");
-      const passInput = document.getElementById("pass");
-      const errorBox = document.getElementById("error");
+    errorBox.textContent = "";
 
-      const user = userInput.value.trim();
-      const pass = passInput.value.trim();
+    if (!user || !pass) {
+      errorBox.textContent = "Campos incompletos";
+      return;
+    }
 
-      errorBox.textContent = "";
+    try {
+      // Ruta corregida: /auth/login
+      const res = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: user,
+          password: pass
+        })
+      });
 
-      if (!user || !pass) {
-        errorBox.textContent = "Campos incompletos";
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorBox.textContent = data.error || "Login inválido";
         return;
       }
 
-      try {
-        const res = await fetch("http://localhost:3000/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            username: user,
-            password: pass
-          })
-        });
+      // Guardamos token
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("usuarioActivo", user);
 
-        const data = await res.json();
+      // Rol simple para la tarea
+      localStorage.setItem(
+        "rol",
+        user.toLowerCase() === "gael" ? "admin" : "user"
+      );
 
-        if (!res.ok) {
-          errorBox.textContent = data.error || "Login inválido";
-          return;
-        }
+      alert(`¡Bienvenido ${user}!`);
+      window.location.href = "tasks.html";
 
-        // GUARDAMOS TOKEN
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("usuarioActivo", user);
+    } catch (err) {
+      console.error(err);
+      errorBox.textContent = "Servidor no disponible";
+    }
+  };
 
-        // ROL (simple para la tarea)
-        localStorage.setItem(
-          "rol",
-          user.toLowerCase() === "gael" ? "admin" : "user"
-        );
-
-        alert(`¡Bienvenido ${user}!`);
-        window.location.href = "tasks.html";
-
-      } catch (err) {
-        console.error(err);
-        errorBox.textContent = "Servidor no disponible";
-      }
-    };
-
-    // ENTER PARA LOGIN
-    document.getElementById("pass").addEventListener("keypress", e => {
-      if (e.key === "Enter") btnLogin.click();
-    });
-  }
+  // ENTER para login
+  document.getElementById("pass").addEventListener("keypress", e => {
+    if (e.key === "Enter") btnLogin.click();
+  });
+}
 
   /* =====================
       PERMISOS ADMIN MENU
